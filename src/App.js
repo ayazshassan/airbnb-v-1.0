@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header";
+import Home from "./Home";
+import "./App.css";
+import Search from "@material-ui/icons/Search";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SearchPage from "./SearchPage";
+import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route path="/search">
+            <SearchPage></SearchPage>
+          </Route>
+
+          <Route path="/">
+            <Home></Home>
+          </Route>
+        </Switch>
+        <Footer></Footer>
+      </Router>
     </div>
   );
 }
